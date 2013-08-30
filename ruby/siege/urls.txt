@@ -1,0 +1,4 @@
+#http://0.0.0.0:5000/
+http://0.0.0.0:5000/to_redis POST data={test:true}
+http://0.0.0.0:5000/to_pg POST data={test:true}
+

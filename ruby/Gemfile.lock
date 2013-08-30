@@ -1,0 +1,20 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (1.8.0)
+    pg (0.16.0)
+    rack (1.5.2)
+    redis (3.0.4)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    tilt (1.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  json
+  pg (~> 0.16.0)
+  redis
+  sinatra (= 1.1.0)
