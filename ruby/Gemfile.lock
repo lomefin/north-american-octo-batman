@@ -2,13 +2,19 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (1.8.0)
+    kgio (2.8.0)
     pg (0.16.0)
     rack (1.5.2)
+    raindrops (0.11.0)
     redis (3.0.4)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
     tilt (1.4.1)
+    unicorn (4.6.3)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -18,3 +24,4 @@ DEPENDENCIES
   pg (~> 0.16.0)
   redis
   sinatra (= 1.1.0)
+  unicorn
