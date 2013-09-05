@@ -9,11 +9,28 @@ import psycopg2
 import redis
 import pytz
 
+try:
+	import epicpycfg
+except ImportError:
+	PG_SERVER = os.environ['PG_SERVER']
+	PG_USER = os.environ['PG_USER']
+	PG_PASS = os.environ['PG_PASS']
+	PG_DB = os.environ['PG_DB']
 
-PG_SERVER = os.environ['PG_SERVER']
-PG_USER = os.environ['PG_USER']
-PG_PASS = os.environ['PG_PASS']
-PG_DB = os.environ['PG_DB']
+	REDIS_SERVER = os.environ['REDIS_SERVER']
+	REDIS_PORT = 6379 if 'REDIS_PORT' not in os.environ else os.environ['REDIS_PORT']
+	REDIS_DB = os.environ['REDIS_DB']
+else:
+	PG_SERVER = epicpycfg.PG_SERVER
+	PG_USER = epicpycfg.PG_USER
+	PG_PASS = epicpycfg.PG_PASS
+	PG_DB = epicpycfg.PG_DB
+
+	REDIS_SERVER = epicpycfg.REDIS_SERVER
+	REDIS_PORT = 6379 if not hasattr(epicpycfg, 'REDIS_PORT') else epicpycfg.REDIS_PORT
+	REDIS_DB = epicpycfg.REDIS_DB	
+
+
 PG_INSERT_QUERY = """INSERT INTO epic.incoming
 (name, position, time_generated)
 VALUES (%s, %s, CAST(%s as timestamp with time zone))"""
@@ -26,9 +43,6 @@ primary key (name, position, time_generated)
 )"""
 
 
-REDIS_SERVER = os.environ['REDIS_SERVER']
-REDIS_PORT = 6379 if 'REDIS_PORT' not in os.environ else os.environ['REDIS_PORT']
-REDIS_DB = os.environ['REDIS_DB']
 REDISQUEUE = 'incoming'
 
 
