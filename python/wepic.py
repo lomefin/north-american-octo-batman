@@ -6,6 +6,11 @@ import epic
 app = btl.Bottle()
 
 
+@app.route('/', method='GET')
+def index():
+	return 'Hello. My Name is Bottle and I am EPIC!!! because I run on Python'
+
+
 @app.route('/gpsredis', method='POST')
 def create_redis():
 	redisconn = epic.init_redis()
