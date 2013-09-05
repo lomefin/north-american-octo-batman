@@ -1,0 +1,3 @@
+#!/bin/bash
+source /home/lluarte/naob/ruby/configs/envvars.sh
+unicorn -c /home/lluarte/naob/ruby/unicorn.rb -D
