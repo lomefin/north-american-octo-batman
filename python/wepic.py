@@ -11,14 +11,14 @@ def index():
 	return 'Hello. My Name is Bottle and I am EPIC!!! because I run on Python'
 
 
-@app.route('/gpsredis', method='POST')
+@app.route('/to_redis', method='POST')
 def create_redis():
 	redisconn = epic.init_redis()
 
 	epic.process_redis(btl.request.body.read(), redisconn)
 
 
-@app.route('/gpspg', method='POST')
+@app.route('/to_pg', method='POST')
 def create_pg():
 	pgconn = epic.init_pg()
 	pgcur = pgconn.cursor()

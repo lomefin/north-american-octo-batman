@@ -31,20 +31,12 @@ else:
 	REDIS_DB = epicpycfg.REDIS_DB	
 
 
-PG_INSERT_QUERY = """INSERT INTO epic.incoming
+PG_INSERT_QUERY = """INSERT INTO epicpython_incoming
 (name, position, time_generated)
 VALUES (%s, %s, CAST(%s as timestamp with time zone))"""
 
-PG_CREATE_TABLE_QUERY = """CREATE TABLE epic.incoming (
-name varchar(255) not null,
-position varchar(255) not null,
-time_generated timestamp with time zone not null
 
--- primary key (name, position, time_generated)
-)"""
-
-
-REDISQUEUE = 'incoming'
+REDISQUEUE = 'incoming_py'
 
 
 def init_pg():

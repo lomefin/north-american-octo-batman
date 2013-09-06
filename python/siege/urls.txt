@@ -1,2 +1,0 @@
-#http://0.0.0.0:5000/
-http://0.0.0.0:5000/to_redis POST data={sender:abrawalf,segment:4,position:"9.23123123,2.2312312",accuracy:23,timestamp:1293081239812}
