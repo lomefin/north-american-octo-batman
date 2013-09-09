@@ -6,6 +6,8 @@ import epic
 app = btl.Bottle()
 
 
+redisconn = epic.init_redis()
+
 @app.route('/', method='GET')
 def index():
 	return 'Hello. My Name is Bottle and I am EPIC!!! because I run on Python'
@@ -13,8 +15,6 @@ def index():
 
 @app.route('/to_redis', method='POST')
 def create_redis():
-	redisconn = epic.init_redis()
-
 	epic.process_redis(btl.request.body.read(), redisconn)
 
 
