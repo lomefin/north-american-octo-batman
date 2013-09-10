@@ -4,6 +4,7 @@ import epic
 
 
 app = btl.Bottle()
+application = app
 
 redisconn = epic.init_redis()
 
